@@ -1,12 +1,6 @@
-"""
-Celery configuration for credit_approval project.
-"""
-
 import os
 from celery import Celery
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'credit_approval.settings')
-
 app = Celery('credit_approval')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
